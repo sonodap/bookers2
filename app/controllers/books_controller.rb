@@ -19,7 +19,9 @@ end
 
 
 def show
-  @book = Book.find(params[:id])
+  # @book = Book.find(params[:id])
+  # @users = @book.users
+  # @user = user.new
 end
 
 
@@ -28,6 +30,7 @@ end
 
 def index
   @books = Book.all
+  @user = User.all
 end
 
 def destroy

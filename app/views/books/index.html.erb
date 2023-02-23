@@ -1,3 +1,45 @@
+<h1>User info</h1>
+
+
+<div>
+  <%= image_tag @user.get_profile_image(100,100) %>
+</div>
+
+<table>
+ <tbody>
+   <tr>
+     <th>name</th>
+    <th><%= @user.name %></th>
+   </tr>
+
+   <tr>
+     <th>introduction</th>
+   </tr>
+ </tbody>
+</table>
+
+<h4>New Book</h4>
+
+<h6>Title</h6>
+
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @book do |f| %>
+ <%= f.text_field :title %>
+<h6>Opinion</h6>
+ <%= f.text_area :body %>
+ <div>
+<%= f.submit 'Create Book' %>
+</div>
+<% end %>
+
 <h1><strong>Books</strong></h1>
 
 <tr>
