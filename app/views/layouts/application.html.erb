@@ -10,24 +10,65 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
+
+
   <body>
     <header>
-      <%= link_to "Bookers",root_path %>
-      <% if user_signed_in? %>
-         <%= link_to "Home" ,user_path(current_user.id) %>
-         <%= link_to "Users" ,users_path %>
-         <%= link_to "Books",books_path %>
-         <%= link_to "Log out" ,destroy_user_session_path, method: :delete %>
-      <% else %>
-         <%= link_to "Home",root_path %>
-         <%= link_to "About",about_path %>
-         <%= link_to "Sign up", new_user_registration_path %>
-         <%= link_to "Log in", new_user_session_path %>
-        <% end %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <div class="container">
+         <a class="navbar-bland text-left" href="/",class: 'navbar-bland text-white'>
+           <span>Bookers</span>
+         </a>
+
+        <div class="coleapse navbar-coleapse" id="navbarNavDropdown">
+         <ul class="navbar-nav ml-auto">
+           <% if user_signed_in? %>
+           <li class="nav-link text-light">
+             <%= link_to "Home" ,user_path(current_user.id),class: 'nav-link text-white' %>
+           </li>
+           <li class="nav-link text-light">
+             <%= link_to "Users" ,users_path(current_user.id),class: 'nav-link text-white'%>
+           </li>
+           <li class="nav-link text-light">
+             <%= link_to "Books",books_path,class: 'nav-link text-white' %>
+           </li>
+           <li class="nav-link text-light">
+             <%= link_to "Log out",destroy_user_session_path, method: :delete,class: 'nav-link text-white' %>
+           </li>
+          <% else %>
+           <li class="nav-link text-light">
+             <%= link_to "Home",root_path, class: 'nav-link text-white' %>
+           </li>
+           <li class="nav-link text-light">
+             <%= link_to "About",about_path, class: 'nav-link text-white'%>
+           </li>
+           <li class="nav-link text-light">
+             <%= link_to "Sign up",new_user_registration_path,class: 'nav-link text-white' %>
+           </li>
+           <li class="nav-link text-light">
+             <%= link_to "Log out",destroy_user_session_path, method: :delete,class: 'nav-link text-white' %>
+           </li>
+          <% end %>
+         </ul>
+        </div>
+       </div>
+      </nav>
     </header>
-    <%= yield %>
-    <footer>CopyRight Infratop.inc</footer>
+     <%= yield %>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
+
+
+
 
 

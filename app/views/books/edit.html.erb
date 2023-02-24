@@ -1,1 +1,19 @@
-<h1>投稿の編集</h1>
+
+<h2>Editing Book</h2>
+
+<h6>Title</h6>
+ <%= f.text_field :title %>
+<h6>Opinion</h6>
+ <%= f.text_area :body %>
+ <div>
+<%= f.submit 'Update Book' %>
+</div>
+<th>
+  <tr>
+    <%= link_to"Show" book_path %>
+  </tr>
+  <tr>
+    <%= link_to"Back" books_path %>
+  </tr>
+</th>
+<% end %>
