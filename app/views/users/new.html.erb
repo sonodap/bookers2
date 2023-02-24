@@ -1,8 +1,21 @@
-<h1><strong>Forgot your password?</strong></h1>
-<h6>Email</h6>
- <%= f.text_area :caption %>
-  <div>
-<%= f.submit 'Send me reset password instructions' %>
-</div>
-<%= link_to "Log in", new_user_session_path %>
-<%= link_to "Sign up",new_user_registration_path %>
+<main>
+ <h2>Forgot your password?</h2>
+   <form class="new_user" id="new_user" action="/users/password" accept-charset="UTF-8" method="post">
+    <div class="field">
+     <label for="user_email">Email</label>
+     <br>
+     <!--<%= f.text_area :caption %>-->
+     <!--<input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email">-->
+    </div>
+    <div class="actions">
+     <%= f.submit 'Send me reset password instructions' %>
+    </div>
+   </form>
+   <%= link_to "Log in", new_user_session_path %><br>
+   <%= link_to "Sign up",new_user_registration_path %>
+</main>
+
+
+
+
+
