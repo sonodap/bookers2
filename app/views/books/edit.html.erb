@@ -1,31 +1,30 @@
+<%= flash[:notice] %>
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>Editing Book</h1>
-      <form action="/books/64347" accept-charset="UTF-8" method="post">
+      <%= form_with model: @book do |f| %>
         <div class="form-group">
           <lable for="book_title">Title</lable>
-          <!--<%= f.text_field :title %>-->
-          <!--<input class="form-control book_title" type="text" name="book[title]" id="book_title">-->
+          <%= f.text_field :title %>
         </div>
         <div class="form-group">
           <lable for="book_opinion">Opinion</lable>
-          <!--<%= f.text_area :body %>-->
-          <!--<textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>-->
+          <%= f.text_area :body %>
         </div>
         <div class="form-group">
           <%= f.submit 'Update Book' %>
         </div>
-      </form>
+        <% end %>
       <th>
         <tr>
-          <%= link_to"Show" book_path %>
+          <%= link_to"Show",book_path %>
         </tr>
         <tr>
-          <%= link_to"Back" books_path %>
+          <%= link_to"Back",books_path %>
         </tr>
      </th>
     </div>
   </div>
 </div>
-<% end %>
+
