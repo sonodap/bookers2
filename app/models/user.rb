@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 validates :name, presence: true, length: { minimum: 2}
-# validates :email, presence: true
-# validates :password, presence: true, length: { minimum: 6}
+validates :introduction, presence: true
+validates :title, presence: true
+validates :opinion, presence: true
 
 
 has_many :books, dependent: :destroy
@@ -15,7 +16,7 @@ has_many :books, dependent: :destroy
 
   def get_profile_image(width, height)
     unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      file_path = Rails.root.join('app/assets/images/default_image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
